@@ -6,6 +6,14 @@ const bookTickets = (req, res) => {
   const eventId = req.body.event_id;
   const userId = req.user.id;
 
+  if (!isPositiveInteger(eventId)) {
+    return res.status(400).json({ message: 'Invalid event ID' });
+  }
+
+  if (!isPositiveInteger(userId)) {
+    return res.status(403).json({ message: 'User not authorized' });
+  }
+
   db.query(`SELECT available_seats FROM events WHERE id = ?`, [eventId], (err, results) => {
     if (err || results.length === 0) return res.status(400).json({ message: 'Event not found' });
     if (results[0].available_seats <= 0) return res.status(400).json({ message: 'No seats available' });
