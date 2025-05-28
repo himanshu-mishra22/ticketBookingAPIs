@@ -71,9 +71,9 @@ npm start
 4. DELETE	-- /backend/events/:id	-- Delete an event
 
 ### Booking Routes
-1. POST --	/backend/bookings/:eventId --	Book a ticket for event
+1. POST --	/backend/bookings/ --	Book a ticket for event
 2. GET --	/backend/bookings/ --	View user’s bookings
-3. DELETE --	/api/bookings/:id --	Cancel a booking
+3. DELETE --	/backend/bookings/:id --	Cancel a booking
 
 ## Tech Stack
 - Node.js
